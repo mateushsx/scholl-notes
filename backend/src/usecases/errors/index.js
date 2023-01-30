@@ -13,3 +13,11 @@ export class AlreadyExistsError extends Error {
         this.message = `This ${paramName} already exists.`;
     }
 }
+
+export class NotFoundError extends Error {
+    constructor(paramName) {
+        super();
+        this.name = 'NotFoundError';
+        this.message = `This ${paramName} was not found.`;
+    }
+}
