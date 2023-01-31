@@ -1,5 +1,5 @@
-import {isValidEmail, isValidPassword} from '../../shared/validators';
-import {MissingParamError, NotFoundError} from '../errors';
+import {isValidEmail, isValidPassword} from '../../shared/validators/index.js';
+import {MissingParamError, NotFoundError} from '../errors/index.js';
 
 export class SigninUseCase {
     constructor(userDataAccess, encrypter, tokenManager) {
