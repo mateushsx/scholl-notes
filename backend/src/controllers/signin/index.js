@@ -1,4 +1,4 @@
-export class SigninUseCase {
+export class SigninController {
     constructor(signinUseCase) {
         this.signinUseCase = signinUseCase;
     }
