@@ -16,6 +16,10 @@ const passwordSchema = Joi.object({
         .max(30),
 });
 
+const numberSchema = Joi.object({
+    number: Joi.number().required(),
+});
+
 export function isValidName(name) {
     if (!name) return false;
     const result = nameSchema.validate({name});
@@ -31,5 +35,10 @@ export function isValidEmail(email) {
 export function isValidPassword(password) {
     if (!password) return false;
     const result = passwordSchema.validate({password});
+    return result.error ? false : true;
+}
+
+export function isValidNumber(number) {
+    const result = numberSchema.validate({number});
     return result.error ? false : true;
 }
