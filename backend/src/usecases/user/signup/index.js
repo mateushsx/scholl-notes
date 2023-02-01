@@ -4,8 +4,8 @@ import {
     isValidName,
     isValidEmail,
     isValidPassword,
-} from '../../shared/validators/index.js';
-import {AlreadyExistsError, MissingParamError} from '../errors/index.js';
+} from '../../../shared/validators/index.js';
+import {AlreadyExistsError, MissingParamError} from '../../errors/index.js';
 
 export class SignupUseCase {
     constructor(userDataAccess, encrypter, tokenManager) {
