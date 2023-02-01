@@ -7,6 +7,12 @@ export class UserDataAccess {
         return null;
     }
 
+    async findById(id) {
+        const user = await UserModel.findOne({id});
+        if (user && user.id) return user;
+        return null;
+    }
+
     async save(userInput) {
         const user = new UserModel(userInput);
         const userData = await user.save();
