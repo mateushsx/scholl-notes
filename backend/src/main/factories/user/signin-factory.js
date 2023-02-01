@@ -1,7 +1,7 @@
 import {UserDataAccess} from '../../../data/user/index.js';
 import {Encrypter} from '../../../services/encrypter/index.js';
 import {SigninUseCase} from '../../../usecases/signin/index.js';
-import {SigninController} from '../../../controllers/signin/index.js';
+import {SigninController} from '../../../controllers/user/signin/index.js';
 import {TokenManager} from '../../../services/token/index.js';
 
 export async function signinFactory(request, response) {
