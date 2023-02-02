@@ -7,9 +7,15 @@ export class MatterDataAccess {
 
         return {id: matterData.id};
     }
+
     async findById(id) {
         const matter = await MatterModel.findOne({id});
         if (matter && matter.id) return matter;
         return null;
+    }
+
+    async all(user_id) {
+        const matters = await MatterModel.find({user_id});
+        return matters;
     }
 }
