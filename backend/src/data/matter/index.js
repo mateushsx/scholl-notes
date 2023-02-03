@@ -18,4 +18,8 @@ export class MatterDataAccess {
         const matters = await MatterModel.find({user_id});
         return matters;
     }
+
+    async update(id, updates) {
+        await MatterModel.updateOne({id}, updates);
+    }
 }
