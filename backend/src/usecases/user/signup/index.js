@@ -36,7 +36,7 @@ export class SignupUseCase {
         user.id = crypto.randomUUID();
 
         const {id} = await this.userDataAccess.save(user);
-        const token = await this.tokenManager.sign({key: {id}});
+        const token = this.tokenManager.sign({key: {id}});
 
         return {id, token};
     }

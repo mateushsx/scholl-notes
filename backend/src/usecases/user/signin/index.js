@@ -40,7 +40,7 @@ export class SigninUseCase {
         }
 
         delete userExists.password;
-        const token = await this.tokenManager.sign({
+        const token = this.tokenManager.sign({
             key: {id: userExists.id},
         });
 
