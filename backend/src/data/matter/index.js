@@ -22,4 +22,8 @@ export class MatterDataAccess {
     async update(id, updates) {
         await MatterModel.updateOne({id}, updates);
     }
+
+    async delete(id) {
+        await MatterModel.deleteOne({id});
+    }
 }
