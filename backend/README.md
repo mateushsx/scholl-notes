@@ -29,32 +29,12 @@ Retorna uma resposta JSON com os seguintes campos:
 
 Código de status: 400 Bad request
 
-Se o `nome` for inválido retorna uma resposta JSON com os seguintes campos:
+Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes campos:
 
 ```json
 {
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "Missing or invalid name parameter."
-}
-```
-
-Se o `email` for inválido retorna uma resposta JSON com os seguintes campos:
-
-```json
-{
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "Missing or invalid email parameter."
-}
-```
-
-Se o `senha` for inválido retorna uma resposta JSON com os seguintes campos:
-
-```json
-{
-    "statusCode": 400,
-    "error": "Bad Request",
-    "message": "Missing or invalid password parameter."
+    "statusCode": 400, // Status da requisiçãp
+    "error": "Bad Request", // O tipo do error
+    "message": "Missing or invalid 'param' parameter." // Messagem informando o paramêtro inválido
 }
 ```
