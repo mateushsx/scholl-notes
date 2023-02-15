@@ -13,10 +13,10 @@ export class SigninUseCase {
 
     async execute(userLogin) {
         if (!isValidEmail(userLogin.email)) {
-            throw new Error(MissingParamError('email'));
+            throw new MissingParamError('email');
         }
         if (!isValidPassword(userLogin.password)) {
-            throw new Error(MissingParamError('password'));
+            throw new MissingParamError('password');
         }
 
         const user = {
