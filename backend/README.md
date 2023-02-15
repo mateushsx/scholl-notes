@@ -4,7 +4,9 @@ Um API desenvolvida para gestão de notas escolares, onde os usuários poderão 
 
 ## Endpoints
 
-**GET /user/signup**
+### User routes
+
+**POST /user/signup**
 
 Rota utilizada para cadastro de novos usuário no sistema
 
@@ -39,7 +41,9 @@ Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes cam
 }
 ```
 
-**GET /user/signin**
+---
+
+**POST /user/signin**
 
 Rota utilizada para login de usuário no sistema
 
@@ -70,5 +74,53 @@ Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes cam
     "statusCode": 400, // Status da requisiçãp
     "error": "Bad Request", // O tipo do error
     "message": "Missing or invalid 'param' parameter." // Messagem informando o paramêtro inválido
+}
+```
+
+### Matter routes
+
+**POST /matter/register**
+
+Rota utilizada para registrar uma nova matéria
+
+**Parâmetros de corpo**
+
+-   `user_id`: Identificador do usuário (obrigatório)
+-   `first_bimester`: Nota do primeiro bimestre (obrigatório)
+-   `second_bimester`: Nota do segundo bimestre (obrigatório)
+-   `third_bimester`: Nota do terceiro bimestre (obrigatório)
+-   `fourth_bimester`: Nota do quarto bimestre (obrigatório)
+
+**Resposta de sucesso**
+
+Retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "matter_id": "exemple-matter-id" // Identificador da matéria
+}
+```
+
+**Resposta de erro**
+
+Código de status: 400 Bad request
+
+Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "statusCode": 400, // Status da requisiçãp
+    "error": "Bad Request", // O tipo do error
+    "message": "Missing or invalid 'param' parameter." // Messagem informando o paramêtro inválido
+}
+```
+
+Se o usuário não for encontrado retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "statusCode": 400, // Status da requisiçãp
+    "error": "Bad Request", // O tipo do error
+    "message": "This user was not found." // Messagem informando o paramêtro inválido
 }
 ```
