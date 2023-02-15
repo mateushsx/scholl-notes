@@ -79,9 +79,15 @@ Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes cam
 
 ### Matter routes
 
+---
+
 **POST /matter/register**
 
 Rota utilizada para registrar uma nova matéria
+
+**Parâmetros de cabeçalho**
+
+-   `authorization`: Token gerado após cadastro ou login do usuário
 
 **Parâmetros de corpo**
 
@@ -114,6 +120,51 @@ Se algum paramêtro for inválido retorna uma resposta JSON com os seguintes cam
     "message": "Missing or invalid 'param' parameter." // Messagem informando o paramêtro inválido
 }
 ```
+
+Se o usuário não for encontrado retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "statusCode": 400, // Status da requisiçãp
+    "error": "Bad Request", // O tipo do error
+    "message": "This user was not found." // Messagem informando o paramêtro inválido
+}
+```
+
+---
+
+**POST /matter/list**
+
+Rota utilizada para listar todas matérias de um usuário
+
+**Parâmetros de cabeçalho**
+
+-   `authorization`: Token gerado após cadastro ou login do usuário
+
+**Parâmetros de corpo**
+
+-   `user_id`: Identificador do usuário (obrigatório)
+
+**Resposta de sucesso**
+
+Retorna uma resposta JSON com os seguintes campos:
+
+```json
+[
+    {
+        "id": "exemple-matter-id", // Identificador da matéria
+        "user_id": "exemple-user-id", // Identificador do usuário
+        "first_bimester": 0, //Nota do primeiro bimestre
+        "second_bimester": 0, //Nota do segundo bimestre
+        "third_bimester": 0, //Nota do terceiro bimestre
+        "fourth_bimester": 0 //Nota do quarto bimestre
+    }
+]
+```
+
+**Resposta de erro**
+
+Código de status: 400 Bad request
 
 Se o usuário não for encontrado retorna uma resposta JSON com os seguintes campos:
 
