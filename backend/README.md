@@ -175,3 +175,48 @@ Se o usuário não for encontrado retorna uma resposta JSON com os seguintes cam
     "message": "This user was not found." // Messagem informando o paramêtro inválido
 }
 ```
+
+---
+
+**POST /matter/update/:id**
+
+Rota utilizada para listar todas matérias de um usuário
+
+**Parâmetros de cabeçalho**
+
+-   `authorization`: Token gerado após cadastro ou login do usuário
+
+**Parâmetros da requisição**
+
+-   `id`: Identificador da matéria que vai ser atualizada (obrigatório)
+
+**Parâmetros de corpo**
+
+-   `first_bimester`: Nota do primeiro bimestre (opcional)
+-   `second_bimester`: Nota do segundo bimestre (opcional)
+-   `third_bimester`: Nota do terceiro bimestre (opcional)
+-   `fourth_bimester`: Nota do quarto bimestre (opcional)
+
+**Resposta de sucesso**
+
+Retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "id": "exemplo-id" // Indentificador da matéria atualizada
+}
+```
+
+**Resposta de erro**
+
+Código de status: 400 Bad request
+
+Se a matéria não for encontrado retorna uma resposta JSON com os seguintes campos:
+
+```json
+{
+    "statusCode": 400, // Status da requisiçãp
+    "error": "Bad Request", // O tipo do error
+    "message": "This matter was not found." // Messagem informando o paramêtro inválido
+}
+```
