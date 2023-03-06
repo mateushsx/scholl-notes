@@ -1,5 +1,6 @@
-import React from 'react';
+import {RouterProvider} from 'react-router-dom';
+import {router} from './routes';
 
-export const App: React.FC = () => {
-    return <div />;
-};
+export function App(): JSX.Element {
+    return <RouterProvider router={router} />;
+}
