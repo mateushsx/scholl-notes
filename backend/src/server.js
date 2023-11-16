@@ -1,8 +1,8 @@
 import Fastify from 'fastify';
-import {appRoutes} from './app.js';
-import {env} from './shared/env/index.js';
-import {databaseConnect} from './database.js';
-import {errorHandler} from './middlewares/error-handler.js';
+import { appRoutes } from './app.js';
+import { env } from './shared/env/index.js';
+import { databaseConnect } from './database.js';
+import { errorHandler } from './middlewares/error-handler.js';
 
 export const server = Fastify();
 
@@ -14,7 +14,7 @@ const start = async () => {
         const connection = await databaseConnect();
 
         if (connection) {
-            server.listen({port: env.port});
+            server.listen({ port: env.port });
             console.log(`🎯 server running at: http://localhost:${env.port}/`);
         }
     } catch (err) {
